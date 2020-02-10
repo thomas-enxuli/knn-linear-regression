@@ -294,7 +294,7 @@ def run_Q1(k_range=[1,30]):
     for data in data_list:
 
         val = _cross_val(dataset=data,k=k_range,dist_metric='l2',v=5)
-        print(val)
+        #print(val)
         output_data[data] = val
 
     df = pd.DataFrame(output_data, index =index)
@@ -308,7 +308,7 @@ def run_Q1(k_range=[1,30]):
 
         val = _cross_val(dataset=data,k=k_range,dist_metric='l1',v=5)
         output_data[data] = val
-        print(output_data)
+        #print(output_data)
 
     df = pd.DataFrame(output_data, index =index)
     with pd.option_context('display.max_rows', None, 'display.max_columns', None):  # more options can be specified also
@@ -396,15 +396,14 @@ def run_Q2(k_range=[1,31]):
     index = []
     for k in range(k_range[0],k_range[1]):
         index += ['k='+str(k)]
-    data_list = ['iris']
-    #data_list = ['mnist_small']
+    data_list = ['iris','mnist_small']
 
     print('L2 loss')
     for data in data_list:
         #for k in range(k_range[0],k_range[1]):
         #    print ('------Processing k = '+str(k)+' ------')
         acc = _classification(dataset=data,k_range=k_range,dist_metric='l2')
-        print(acc)
+        #print(acc)
         output_data[data] = acc
 
     df = pd.DataFrame(output_data, index =index)
@@ -418,7 +417,7 @@ def run_Q2(k_range=[1,31]):
         #for k in range(k_range[0],k_range[1]):
         #    print ('------Processing k = '+str(k)+' ------')
         acc = _classification(dataset=data,k_range=k_range,dist_metric='l1')
-        print(acc)
+        #print(acc)
         output_data[data] = acc
 
     df = pd.DataFrame(output_data, index =index)
